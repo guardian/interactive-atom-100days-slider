@@ -8,7 +8,7 @@ var swiper = new Swiper('.swiper-container', {
     centeredSlides: false,
     spaceBetween: 1,
     loop: true,
-    grabCursor: true,
+    // grabCursor: true,
     freeMode: true,
     roundLengths: true,
     autoplay: {
