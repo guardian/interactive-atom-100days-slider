@@ -658,7 +658,7 @@ button.swiper-pagination-bullet {
     }
 
     &__image1 {
-        background-image: url('https://media.guim.co.uk/55ad26a7c490729d60b7a2d29804002737a4297a/0_0_5000_3333/1000.jpg');
+        background-image: url('https://media.guim.co.uk/48b31d1607310f70ab4144b0121fa93a7ec29d0f/519_423_3282_1970/1000.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -685,6 +685,13 @@ button.swiper-pagination-bullet {
         background-repeat: no-repeat;
     }
 
+    &__image5 {
+        background-image: url('https://media.guim.co.uk/ea8702edaa95e5b672d3f0f5317e683b6bf724ed/348_595_2526_1516/1000.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
     $highlightColor: rgba(12, 12, 12, 0.5);
 
     &__caption {
@@ -696,7 +703,4 @@ button.swiper-pagination-bullet {
         margin-top: -22px;
         padding: 0 3px 3px 3px;
     }
-
-
-
 }
