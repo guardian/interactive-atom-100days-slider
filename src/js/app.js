@@ -32,6 +32,77 @@ var swiper = new Swiper('.swiper-container', {
     speed: slowSpeed
 });
 
+var i = 0;
+
+swiper.forEach(swipe => {
+    var index = i;
+    swiper[index].on('touchStart', function (e) {
+        onSliderTouchStart(index);
+    });
+    swiper[index].on('touchEnd', function (e) {
+        onSliderTouchEnd(index);
+    });
+    swiper[index].on('slideChangeTransitionEnd', function (e) {
+        onSliderTransitionEnd(index);
+    });
+    i++;
+});
+
+function onSliderTransitionEnd(ind) {
+    swiper[ind].autoplay.start();
+    swiper[ind].params.speed = slowSpeed;
+}
+
+function onSliderTouchStart(ind) {
+    swiper[ind].autoplay.stop();
+    swiper[ind].params.speed = fastSpeed;
+}
+
+function onSliderTouchEnd(ind) {
+
+    var spd;
+
+    if (swiper[ind].touches.diff > 0) {
+        //swiper[ind].slideToClosest(300);
+        spd = 450;
+        //swiper[ind].slideNext();
+    } else {
+        spd = 350;
+        swiper[ind].autoplay.start();
+
+    }
+    swiper[ind].params.speed = spd;
+    swiper[ind].el.classList.add("ease");
+    //console.log(swiper[ind]);
+
+
+    setTimeout(function () {
+        updateSliderTransitions(ind);
+    }, (spd - 10));
+
+}
+
+function updateSliderTransitions(ind) {
+    //console.log("fired2");
+    swiper[ind].params.speed = slowSpeed;
+    swiper[ind].el.classList.remove("ease");
+    swiper[ind].autoplay.start();
+
+    //swiper[ind].el.querySelector(".swiper-wrapper").style.transitionDuration ="14000ms";
+
+
+    //console.log(swiper[ind].autoplay.running);
+    //swiper[ind].autoplay.stop();
+    //swiper[ind].autoplay.start();
+    //swiper[ind].autoplay.start();
+    //swiper[ind].update();
+    // if (!swiper[ind].animating) {
+    //   swiper[ind].slideNext();
+    // }
+    //setTimeout(function(){ console.log("fired3");swiper[ind].autoplay.start();}, 100);
+}
+
+
 
 if (isAndroidApp && window.GuardianJSInterface.registerRelatedCardsTouch) {
 
