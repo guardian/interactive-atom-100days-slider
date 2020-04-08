@@ -1,19 +1,20 @@
 import Swiper from "swiper";
 
 var fastSpeed = 400;
-var slowSpeed = 12000;
+var slowSpeed = 9000;
 
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('.swiper-container-3', {
     slidesPerView: 3,
     centeredSlides: false,
     spaceBetween: 1,
     loop: true,
-    grabCursor: true,
-    freeMode: true,
+
+    // grabCursor: true,
+    // freeMode: true,
     roundLengths: true,
     autoplay: {
         delay: 0,
-        disableOnInteraction: false
+        disableOnInteraction: true
     },
     breakpoints: {
         320: {
